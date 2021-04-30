@@ -4,13 +4,13 @@ Instructions to run the project:
 1. Connect to mongoDB database. Use the default port
   
   For Windows:
-  a. Open new terminal
-  b. Go to <mongodb_directory>/bin
-  c. Start mongodb server using 'mongodb'
-  d. Open a new terminal in the same direcotry and run 'mongo' command
+  1. Open new terminal
+  2. Go to <mongodb_directory>/bin
+  3. Start mongodb server using 'mongodb'
+  4. Open a new terminal in the same direcotry and run 'mongo' command
   
   For MAC:
-  a. Start mongodb using brew services start mongodb-community@4.4   
+  1. Start mongodb using brew services start mongodb-community@4.4   
   
 2. Open two differnt terminals
 3. In the fisrt terminal go to the path inside backend directory

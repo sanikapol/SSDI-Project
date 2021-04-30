@@ -10,7 +10,7 @@ Instructions to run the project:
   4. Open a new terminal in the same direcotry and run 'mongo' command
   
   For MAC:
-  1. Start mongodb using brew services start mongodb-community@4.4   
+  Start mongodb using brew services start mongodb-community@4.4   
   
 2. Open two differnt terminals
 3. In the fisrt terminal go to the path inside backend directory

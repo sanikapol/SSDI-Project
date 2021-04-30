@@ -29,12 +29,18 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/configurebudget']);
       }
       else{
+
+        this.dataService.dataSource.datasets[0].data = [];
+        this.dataService.dataSource.labels = [];
         for (var i = 0; i < res.length; i++){
+
           this.dataService.dataSource.datasets[0].data[i] = res[i].total;
           this.dataService.dataSource.labels[i] = res[i]._id;
         }
-        //console.log(this.dataSource);
+        //console.log(this.dataService.dataSource);
+
         this.createBudgetChart();
+
 
         this.dataService.getExpenses()
         .subscribe((res: any) => {
@@ -44,6 +50,8 @@ export class DashboardComponent implements OnInit {
             this.router.navigate(['/configurebudget']);
           }
           else{
+            this.dataService.dataSourceBar.datasets[0].data = [];
+            this.dataService.dataSourceBar.labels = [];
             for (var i = 0; i < res.length; i++){
               this.dataService.dataSourceBar.datasets[0].data[i] = res[i].total;
               this.dataService.dataSourceBar.labels[i] = res[i]._id;
@@ -57,6 +65,9 @@ export class DashboardComponent implements OnInit {
               if(res.length == 0){
                 this.router.navigate(['/configurebudget'])
               }else{
+                this.dataService.dataSourceLine.datasets[0].data = [];
+                this.dataService.dataSourceLine.datasets[1].data = [];
+                this.dataService.dataSourceLine.labels = [];
                 for (var i = 0; i < res.length; i++){
                   this.dataService.dataSourceLine.datasets[0].data[i] = res[i].totalBudget;
                   this.dataService.dataSourceLine.datasets[1].data[i] = res[i].totalExpense;
@@ -83,11 +94,13 @@ export class DashboardComponent implements OnInit {
 
 
   createBudgetChart() {
+    console.log(this.dataService.dataSource);
     var ctx = document.getElementById('myBudgetChart');
     new Chart(ctx, {
         type: 'doughnut',
         data: this.dataService.dataSource,
     });
+
   }
 
   createExpensesChart() {
